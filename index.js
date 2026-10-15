@@ -276,7 +276,7 @@ function buildMainMenu() {
   return `╭━◈ ${smallCaps(CONFIG.botName)} ◈━╮
 │  ${smallCaps('Owner')}  : ${ownerName}
 │  ${smallCaps('Prefix')} : [ ${prefix} ]
-│  ${smallCaps('Host')}   : MEGH HOSTING
+│  ${smallCaps('Host')}   : RAHUL HOSTING
 │  ${smallCaps('Plugins')}: ${totalCmds}
 │  ${smallCaps('Mode')}   : ${mode === 'private' ? 'Private 🔐' : 'Public'}
 │  ${smallCaps('Version')}: ${CONFIG.botVersion}
