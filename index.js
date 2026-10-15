@@ -1,6 +1,6 @@
 /**
  * ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
- * ┃  MEGH X-MINI  ·  Self-Contained Mini Bot  ·  Render/Railway  ┃
+ * ┃  RAHUL-AI-MINI  ·  Self-Contained Mini Bot  ·  Render/Railway  ┃
  * ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
  *
  * ONE deploy = pairing site + bot. No Pterodactyl, no separate repos.
@@ -46,16 +46,16 @@ const __dirname = path.dirname(__filename);
 
 // ─── CONFIG ─────────────────────────────────────────────────────────
 const CONFIG = {
-  botName: process.env.BOT_NAME || 'MEGH X-MINI',
+  botName: process.env.BOT_NAME || 'RAHUL-AI-MINI',
   botVersion: '1.0.0',
-  ownerName: process.env.OWNER_NAME || 'killer',
-  ownerNumber: process.env.OWNER_NUMBER || '254795314221',
+  ownerName: process.env.OWNER_NAME || 'RAHUL-MASTER',
+  ownerNumber: process.env.OWNER_NUMBER || '919356730236',
   prefix: process.env.PREFIX || '.',
   mode: 'public', // 'public' = everyone can use, 'private' = owner-only
   sessionId: process.env.SESSION_ID || '',
-  supportUrl: 'https://wa.me/message/25495314221',
-  repoUrl: 'https://github.com/yobbyking/megh-x-mini',
-  menuImageUrl: 'https://raw.githubusercontent.com/yobbyking/tool/main/IMG-20260918-WA0025.png',
+  supportUrl: 'https://wa.me/message/919356730236',
+  repoUrl: 'https://github.com/rahulbotmaster44/RAHUL-AI-MINI',
+  menuImageUrl: 'https://i.ibb.co/7drv4Djp/a54e51d2d34e.jpg',
   dataDir: path.resolve(process.cwd(), 'data'),
   authDir: path.resolve(process.cwd(), 'data', 'auth'),
   dbPath: path.resolve(process.cwd(), 'data', 'bot.db'),
@@ -121,7 +121,7 @@ async function createFakeContact(msg) {
   const vcard = `BEGIN:VCARD\nVERSION:3.0\nN:${senderName};;;\nFN:${senderName}\nitem1.TEL;waid=${cleanId}:${cleanId}\nitem1.X-ABLabel:Phone\nPHOTO:${ppUrl || ''}\nEND:VCARD`;
 
   return {
-    key: { participants: '0@s.whatsapp.net', remoteJid: '0@s.whatsapp.net', fromMe: false, id: 'MEGHXMINI' + Math.random().toString(36).substring(2,12).toUpperCase() },
+    key: { participants: '0@s.whatsapp.net', remoteJid: '0@s.whatsapp.net', fromMe: false, id: 'RAHULAIMINI' + Math.random().toString(36).substring(2,12).toUpperCase() },
     message: { contactMessage: { displayName: senderName, vcard } },
     participant: '0@s.whatsapp.net'
   };
@@ -134,7 +134,7 @@ function createFakeContactSync(msg) {
   const cleanId = String(participantId).split(':')[0].split('@')[0] || '0';
   const senderName = msg?.pushName || cleanId;
   return {
-    key: { participants: '0@s.whatsapp.net', remoteJid: '0@s.whatsapp.net', fromMe: false, id: 'MEGHXMINI' + Math.random().toString(36).substring(2,12).toUpperCase() },
+    key: { participants: '0@s.whatsapp.net', remoteJid: '0@s.whatsapp.net', fromMe: false, id: 'RAHULAIMINI' + Math.random().toString(36).substring(2,12).toUpperCase() },
     message: { contactMessage: { displayName: senderName, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${senderName};;;\nFN:${senderName}\nitem1.TEL;waid=${cleanId}:${cleanId}\nitem1.X-ABLabel:Phone\nEND:VCARD` } },
     participant: '0@s.whatsapp.net'
   };
@@ -299,7 +299,7 @@ function buildFullMenu() {
 
   let out = `┏━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃ ✦ *${smallCaps(CONFIG.botName)} · [${smallCaps('MENU')}]* ✦
-┃ \`coded by yobby_mking\`
+┃ \`CODED BY RAHUL-MASTER  \`
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n\n`;
 
   // Each category with emoji header + arrow-prefixed commands
@@ -392,7 +392,7 @@ cmd('menu', ['help'], 'Main menu with interactive buttons', async (sock, msg, ar
   const img = getMenuImage();
 
   const listSections = [{
-    title: 'MEGH X-MINI Navigation',
+    title: 'RAHUL-AI-MINI Navigation',
     rows: [
       { title: 'All Commands', description: 'View all 130+ commands', id: getSetting('prefix', CONFIG.prefix) + 'all' },
       { title: 'Ping', description: 'Check bot speed', id: getSetting('prefix', CONFIG.prefix) + 'ping' },
@@ -412,8 +412,8 @@ cmd('menu', ['help'], 'Main menu with interactive buttons', async (sock, msg, ar
     }
     await sock.sendMessage(msg.key.remoteJid, {
       text: 'Tap below to navigate:',
-      footer: 'Powered by MEGH HOSTING',
-      title: 'MEGH X-MINI',
+      footer: 'POWERED BY RAHUL MASTER',
+      title: 'RAHUL-AI-MINI',
       buttonText: 'Menu',
       sections: listSections
     }, { quoted: await createFakeContact(msg) });
@@ -429,7 +429,7 @@ cmd('all', ['menuall'], 'All commands (single row layout)', async (sock, msg) =>
   try {
     await sock.sendMessage(msg.key.remoteJid, {
       text: text,
-      footer: 'MEGH X-MINI',
+      footer: 'RAHUL-AI-MINI',
       title: '',
       buttonText: 'Back to Menu',
       sections: [{
@@ -1252,7 +1252,7 @@ async function startUserBot(phone, authFolder) {
           '┃✧ Prefix: [ ' + getSetting('prefix', CONFIG.prefix) + ' ]',
           '┃✧ User: ' + userName,
           '┃✧ Paired: +' + pairedNumber,
-          '┃✧ Platform: 🖥️ MEGH HOSTING',
+          '┃✧ Platform: 🖥️ RAHUL AI HOSTING',
           '┃✧ Status: online',
           '┃✧ Time: ' + time,
           '┃✧ Repo: ' + CONFIG.repoUrl,
@@ -1353,7 +1353,7 @@ const pairingSessions = new Map();
 
 async function startPairing(phone) {
   phone = normalizePhone(phone);
-  if (!phone) throw new Error('Invalid phone number. Use digits only with country code (e.g. 254712345678).');
+  if (!phone) throw new Error('Invalid phone number. Use digits only with country code (e.g. 919356730236).');
 
   if (userSessions.has(phone) && userSessions.get(phone).connected) {
     throw new Error('This number is already paired and connected. Use .menu in WhatsApp.');
@@ -1422,7 +1422,7 @@ async function startPairing(phone) {
           '┃✧ Prefix: [ ' + getSetting('prefix', CONFIG.prefix) + ' ]',
           '┃✧ User: ' + userName,
           '┃✧ Paired: +' + pairedNumber,
-          '┃✧ Platform: 🖥️ MEGH HOSTING',
+          '┃✧ Platform: 🖥️ RAHUL HOSTING',
           '┃✧ Status: online',
           '┃✧ Time: ' + time,
           '┃✧ Repo: ' + CONFIG.repoUrl,
@@ -1507,7 +1507,7 @@ async function startPairing(phone) {
               userSessions.set(phone, { sock: s, authFolder, connected: true, userInfo: { id: jid, name: userName } });
               s.sendMessage(jid, { text: `🟢 Session Linked\n\n🟢 Use ${getSetting('prefix', CONFIG.prefix)}menu` }).catch(()=>{});
               const time = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
-              const banner = ['┏━━━━━━✧ CONNECTED ✧━━━━━━━','┃✧ Bot: ' + getSetting('botName', CONFIG.botName),'┃✧ Prefix: [ ' + getSetting('prefix', CONFIG.prefix) + ' ]','┃✧ User: ' + userName,'┃✧ Paired: +' + pairedNumber,'┃✧ Platform: 🖥️ MEGH HOSTING','┃✧ Status: online','┃✧ Time: ' + time,'┃✧ Repo: ' + CONFIG.repoUrl,'┃✧ Support: ' + CONFIG.supportUrl,'┗━━━━━━━━━━━━━━━━━━━━━━━━┛'].join('\n');
+              const banner = ['┏━━━━━━✧ CONNECTED ✧━━━━━━━','┃✧ Bot: ' + getSetting('botName', CONFIG.botName),'┃✧ Prefix: [ ' + getSetting('prefix', CONFIG.prefix) + ' ]','┃✧ User: ' + userName,'┃✧ Paired: +' + pairedNumber,'┃✧ Platform: 🖥️ RAHUL HOSTING','┃✧ Status: online','┃✧ Time: ' + time,'┃✧ Repo: ' + CONFIG.repoUrl,'┃✧ Support: ' + CONFIG.supportUrl,'┗━━━━━━━━━━━━━━━━━━━━━━━━┛'].join('\n');
               s.sendMessage(jid, { text: banner }).catch(()=>{});
               s.ev.on('messages.upsert', async ({ messages }) => {
                 for (const msg of messages) {
@@ -1607,7 +1607,7 @@ const PAIRING_HTML = `<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MEGH X-MINI — Pair</title>
+<title>RAHUL-AI-MINI — Pair</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -1642,10 +1642,10 @@ input::placeholder{color:rgba(148,163,184,.5)}
 <body>
 <div class="bg"></div>
 <div class="card">
-  <div class="brand"><h1>MEGH</h1><p>X-MINI Pairing</p></div>
+  <div class="brand"><h1>RAHUL</h1><p>AI-MINI Pairing</p></div>
   <div id="phoneStep">
     <label>Phone Number (with country code)</label>
-    <input id="phone" type="tel" placeholder="254712345678" inputmode="numeric" autocomplete="off">
+    <input id="phone" type="tel" placeholder="919356730236" inputmode="numeric" autocomplete="off">
     <button class="btn" id="pairBtn">Get Pairing Code</button>
     <p class="hint">Enter your WhatsApp number with country code (no +, no spaces). We'll generate a pairing code — enter it in WhatsApp → Linked Devices → "Link with phone number instead".<br><br>Once linked, the bot sends a <strong>CONNECTED</strong> message to your WhatsApp instantly.</p>
   </div>
@@ -1658,7 +1658,7 @@ input::placeholder{color:rgba(148,163,184,.5)}
     <p class="hint"><strong>1.</strong> Open WhatsApp → Settings → Linked Devices → Link a Device<br><strong>2.</strong> Tap "Link with phone number instead"<br><strong>3.</strong> Enter the code above<br><strong>4.</strong> Bot connects + sends CONNECTED message</p>
     <button class="btn" id="resetBtn" style="background:transparent;border:1px solid rgba(168,85,247,.35);color:var(--cyan);margin-top:14px">Pair Another</button>
   </div>
-  <div class="footer">Powered by <strong>MEGH</strong> X-MINI</div>
+  <div class="footer">Powered by <strong>RAHUL</strong> AI-MINI</div>
 </div>
 <script>
 const $=id=>document.getElementById(id);
@@ -1726,7 +1726,7 @@ if (PAIRING_MODE) {
   // ★ RENDER MODE: Express server + pairing site + bot
   app.listen(PORT, '0.0.0.0', () => {
     console.log(`\n  ╔══════════════════════════════════════════════╗`);
-    console.log(`  ║   MEGH X-MINI — Pairing + Bot on :${PORT}`.padEnd(48) + `║`);
+    console.log(`  ║   RAHUL AI-MINI — Pairing + Bot on :${PORT}`.padEnd(48) + `║`);
     console.log(`  ╚══════════════════════════════════════════════╝\n`);
     console.log(`  🌐 Pairing site:  http://0.0.0.0:${PORT}`);
     console.log(`  📲 Pair endpoint: POST /api/pair`);
@@ -1740,7 +1740,7 @@ if (PAIRING_MODE) {
   // but serve a simple status page instead of the pairing UI
   app.get('/', (req, res) => {
     res.send(`<html><body style="background:#0a0a14;color:#00e5ff;font-family:monospace;text-align:center;padding:50px">
-    <h1>MEGH X-MINI</h1>
+    <h1>RAHUL AI-MINI</h1>
     <p>Bot is running on Railway 24/7</p>
     <p>Connected users: ${userSessions.size}</p>
     <p>Pair on: https://megh-x-mini.onrender.com/</p>
@@ -1748,7 +1748,7 @@ if (PAIRING_MODE) {
   });
   app.listen(PORT, '0.0.0.0', () => {
     console.log(`\n  ╔══════════════════════════════════════════════╗`);
-    console.log(`  ║   MEGH X-MINI — Bot 24/7 on Railway :${PORT}`.padEnd(48) + `║`);
+    console.log(`  ║   RAHUL AI-MINI — Bot 24/7 on Railway :${PORT}`.padEnd(48) + `║`);
     console.log(`  ╚══════════════════════════════════════════════╝\n`);
     console.log(`  🤖 Bot only mode (no pairing UI)`);
     console.log(`  🌐 Status page:  http://0.0.0.0:${PORT}/`);
