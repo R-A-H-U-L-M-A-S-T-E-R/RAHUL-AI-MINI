@@ -1,0 +1,24 @@
+{
+  "name": "megh-x-mini",
+  "version": "1.1.1",
+  "description": "MEGH X-MINI — Self-contained mini WhatsApp bot with built-in pairing. Uses official Baileys + list message buttons.",
+  "main": "index.js",
+  "type": "module",
+  "engines": {
+    "node": "20.x"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "author": "yobbyking",
+  "license": "MIT",
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.0",
+    "better-sqlite3": "^11.3.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "pino": "^9.4.0",
+    "qrcode-terminal": "^0.12.0"
+  }
+}
